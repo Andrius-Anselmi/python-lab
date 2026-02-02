@@ -1,6 +1,6 @@
 # Python DSA / LeetCode – Cheat Sheet 🧠⚡
 
-Este README é um **guia rápido de consulta** para resolver problemas de **DSA** e **LeetCode** em Python. Nada de firula, só o que cai em batalha.
+Este README é um **guia rápido de consulta** para resolver problemas de **DSA** e **LeetCode** em Python.
 
 ---
 
