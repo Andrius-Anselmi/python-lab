@@ -283,4 +283,3 @@ def outer(a, b):
 
 ---
 
-Fim. Agora vai lá quebrar o LeetCode 😈
