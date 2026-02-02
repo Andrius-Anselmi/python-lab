@@ -1,89 +1,205 @@
 # Python DSA / LeetCode – Cheat Sheet 🧠⚡
 
-Este README é um **guia rápido de consulta** para resolver problemas de **DSA** e **LeetCode** em Python.
+Este README é um guia rápido de consulta para resolver problemas de DSA e LeetCode em Python.
 
 ---
 
 ## Loops (`range`)
 
 ```python
-range(n)        # 0 até n-1
-range(a, b)     # a até b-1
-range(a, b, s)  # passo s (pode ser negativo)
+for i in range(5):
+    print(i)
 ```
 
-Exemplos comuns:
+Output:
+
+```
+0 1 2 3 4
+```
 
 ```python
-for i in range(5): pass        # 0..4
-for i in range(2, 6): pass     # 2..5
-for i in range(5, 1, -1): pass # 5..2
-for i in range(0, 12, 2): pass # pares
+for i in range(2, 6):
+    print(i)
 ```
 
-💡 **Dica LeetCode**: sempre confira se o limite é inclusivo ou exclusivo.
+Output:
+
+```
+2 3 4 5
+```
+
+```python
+for i in range(5, 1, -1):
+    print(i)
+```
+
+Output:
+
+```
+5 4 3 2
+```
+
+```python
+for i in range(0, 12, 2):
+    print(i)
+```
+
+Output:
+
+```
+0 2 4 6 8 10
+```
 
 ---
 
 ## Matemática Básica
 
 ```python
-5 / 2   # divisão real -> 2.5
-5 // 2  # divisão inteira (floor) -> 2
-int(3/2)  # também 1, mas mais lento
-
-10 % 3    # 1
--10 % 3   # 2  (Python sempre retorna resto positivo)
+print(5 / 2)
+print(5 // 2)
+print(int(3 / 2))
 ```
 
-💡 `%` com negativos é pegadinha clássica.
+Output:
+
+```
+2.5
+2
+1
+```
+
+```python
+print(10 % 3)
+print(-10 % 3)
+```
+
+Output:
+
+```
+1
+2
+```
 
 ---
 
 ## Listas (Arrays)
 
 ```python
-arr = [1, 2, 3]
+arr = [1,2,3]
 arr.append(4)
-arr.pop()        # remove último
-arr.insert(1, 7) # O(n)
-arr[0] = 0
+print(arr)
+arr.pop()
+print(arr)
+arr.insert(1,7)
+print(arr)
 ```
 
-Inicialização rápida:
+Output:
+
+```
+[1, 2, 3, 4]
+[1, 2, 3]
+[1, 7, 2, 3]
+```
 
 ```python
-arr = [1] * n
+arr = [1] * 5
+print(arr)
+print(len(arr))
 ```
 
-Indexação:
+Output:
+
+```
+[1, 1, 1, 1, 1]
+5
+```
 
 ```python
-arr[-1]   # último elemento
+arr = [1,2,3]
+print(arr[-1])
 ```
 
-### Slicing
+Output:
+
+```
+3
+```
+
+---
+
+## Slicing
 
 ```python
-arr[a:b]  # a inclusive, b exclusivo
+arr = [1,2,3,4]
+print(arr[1:3])
+print(arr[0:4])
 ```
 
-⚠️ slicing cria **nova lista** (custo O(n)).
+Output:
+
+```
+[2, 3]
+[1, 2, 3, 4]
+```
 
 ---
 
 ## Loops em Listas
 
 ```python
-for i in range(len(nums)): pass
-for n in nums: pass
-for i, n in enumerate(nums): pass
+nums = [1,2,3]
+for i in range(len(nums)):
+    print(nums[i])
 ```
 
-Iterando múltiplas listas:
+Output:
+
+```
+1 2 3
+```
 
 ```python
-for a, b in zip(nums1, nums2): pass
+for n in nums:
+    print(n)
+```
+
+Output:
+
+```
+1 2 3
+```
+
+```python
+for i, n in enumerate(nums):
+    print(i, n)
+```
+
+Output:
+
+```
+0 1
+1 2
+2 3
+```
+
+---
+
+## Zip
+
+```python
+nums1 = [1,3,5]
+nums2 = [2,4,6]
+for a, b in zip(nums1, nums2):
+    print(a, b)
+```
+
+Output:
+
+```
+1 2
+3 4
+5 6
 ```
 
 ---
@@ -91,29 +207,59 @@ for a, b in zip(nums1, nums2): pass
 ## Reverse e Sort
 
 ```python
-nums.reverse()      # in-place
-sorted(nums)        # cria nova lista
+nums = [1,2,3]
+nums.reverse()
+print(nums)
+```
+
+Output:
+
+```
+[3, 2, 1]
 ```
 
 ```python
+arr = [5,4,7,3,8]
 arr.sort()
+print(arr)
 arr.sort(reverse=True)
-arr.sort(key=len)  # custom sort
+print(arr)
 ```
 
-⏱️ `sort()` → O(n log n)
+Output:
+
+```
+[3, 4, 5, 7, 8]
+[8, 7, 5, 4, 3]
+```
+
+```python
+arr = ['bob', 'alice', 'jane', 'doe']
+arr.sort(key=len)
+print(arr)
+```
+
+Output:
+
+```
+['bob', 'doe', 'jane', 'alice']
+```
 
 ---
 
 ## List Comprehension
 
 ```python
-[i for i in range(5)]
-[i*i for i in range(5)]
-[i for i in arr if i % 2 == 0]
+print([i for i in range(5)])
+print([i+i for i in range(5)])
 ```
 
-🔥 Muito usada em soluções curtas.
+Output:
+
+```
+[0, 1, 2, 3, 4]
+[0, 2, 4, 6, 8]
+```
 
 ---
 
@@ -121,80 +267,133 @@ arr.sort(key=len)  # custom sort
 
 ```python
 s = "abc"
-s[0:2]
-s += "def"  # strings são imutáveis
+t = "banana"
+print(s[0:2])
+print(t[2:])
 ```
 
-Conversões:
+Output:
 
-```python
-int("123")
-str(123)
-ord('a')  # ASCII
+```
+ab
+nana
 ```
 
-Join:
+```python
+s += "def"
+print(s)
+```
+
+Output:
+
+```
+abcdef
+```
 
 ```python
-','.join(strings)
+print(int('123') + int('123'))
+print(str(123) + str(123))
+```
+
+Output:
+
+```
+246
+123123
+```
+
+```python
+print(ord('a'))
+print(ord('b'))
+```
+
+Output:
+
+```
+97
+98
+```
+
+```python
+strings = ['ab','cd','ef']
+print(','.join(strings))
+```
+
+Output:
+
+```
+ab,cd,ef
 ```
 
 ---
 
-## Queue / Deque
+## Queue (Deque)
 
 ```python
 from collections import deque
 q = deque()
-q.append(x)
-q.appendleft(x)
-q.pop()
+q.append(1)
+q.append(2)
+print(q)
 q.popleft()
+print(q)
 ```
 
-⏱️ Todas O(1). **Nunca use lista como fila.**
+Output:
+
+```
+deque([1, 2])
+deque([2])
+```
 
 ---
 
-## Set (HashSet)
+## Set
 
 ```python
 s = set()
 s.add(1)
-1 in s
-s.remove(1)
+s.add(2)
+print(s)
+print(1 in s)
+print(3 in s)
 ```
 
-```python
-set([1,2,3])
-{i for i in range(5)}
-```
+Output:
 
-⏱️ lookup O(1)
+```
+{1, 2}
+True
+False
+```
 
 ---
 
-## Dict (HashMap)
+## Dict
 
 ```python
-d = {}
-d['a'] = 1
-'a' in d
-d.pop('a')
+d = {'Alice': 90, 'bob': 70}
+print(d)
+print(d['Alice'])
 ```
 
-Comprehension:
+Output:
 
-```python
-{i: 2*i for i in range(3)}
+```
+{'Alice': 90, 'bob': 70}
+90
 ```
 
-Loops:
-
 ```python
-for k in d:
-for v in d.values():
 for k, v in d.items():
+    print(k, v)
+```
+
+Output:
+
+```
+Alice 90
+bob 70
 ```
 
 ---
@@ -203,83 +402,89 @@ for k, v in d.items():
 
 ```python
 t = (1,2,3)
+print(t)
 ```
 
-✔ Imutável
-✔ Pode ser chave de dict / set
+Output:
+
+```
+(1, 2, 3)
+```
 
 ```python
-myMap = {(1,2): 3}
+m = {(1,2): 3}
+print(m[(1,2)])
+```
+
+Output:
+
+```
+3
 ```
 
 ---
 
-## Heap (Priority Queue)
+## Heap
 
 ```python
 import heapq
-heap = []
-heapq.heappush(heap, x)
-heapq.heappop(heap)
+h = []
+heapq.heappush(h,3)
+heapq.heappush(h,2)
+heapq.heappush(h,4)
+print(h[0])
 ```
 
-✔ Min-heap por padrão
+Output:
 
-Max-heap (gambiarra oficial):
+```
+2
+```
 
 ```python
-heapq.heappush(heap, -x)
--x = heapq.heappop(heap)
+while h:
+    print(heapq.heappop(h))
 ```
 
-Build heap:
+Output:
 
-```python
-heapq.heapify(arr)
 ```
-
-⏱️ push/pop → O(log n)
+2
+3
+4
+```
 
 ---
 
-## Funções
+## Funções e Closures
 
 ```python
-def f(a, b):
-    return a * b
+def myFunc(n, m):
+    return n * m
+print(myFunc(3,4))
 ```
 
-Closures:
+Output:
+
+```
+12
+```
 
 ```python
-def outer(a, b):
+def outer(a,b):
     c = 'c'
     def inner():
         return a + b + c
     return inner()
+
+print(outer('a','b'))
 ```
 
-💡 Muito usado em DFS com variáveis externas.
+Output:
 
----
-
-## Complexidade (Regra de Ouro)
-
-* Loop simples → O(n)
-* Dois loops aninhados → O(n²)
-* Sort → O(n log n)
-* Dict / Set lookup → O(1)
-* Recursão profunda → risco de stack overflow
-
----
-
-## LeetCode Survival Tips 🧨
-
-* Leia exemplos antes do código
-* Pense no **edge case** primeiro
-* Use `dict` e `set` sem medo
-* Se parece força bruta, provavelmente TLE
-* Python passa se a lógica for boa
+```
+abc
+```
 
 ---
 
